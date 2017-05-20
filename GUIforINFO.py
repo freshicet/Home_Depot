@@ -1,18 +1,18 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+# Small GUI for getting all the info for the Home Depot survey.
 from tkinter import *
 
 
 def show_entry_fields():
-    # 
     First_Name = e1.get()
     Last_Name = e2.get()
     email = e3.get()
     zip_Code = e4.get()
     file = open('File_INFO.txt', 'w')
-    file.write(First_Name+'\n')
-    file.write(Last_Name+'\n')
-    file.write(email+'\n')
+    file.write(First_Name + '\n')
+    file.write(Last_Name + '\n')
+    file.write(email + '\n')
     file.write(zip_Code)
     file.close()
     master.destroy()
@@ -41,5 +41,4 @@ Button(master, text='Quit', command=master.quit).grid(
 Button(master, text='Enter', command=show_entry_fields).grid(
     row=8, column=1, sticky=W, pady=4)
 
-name = e1.get()
 mainloop()

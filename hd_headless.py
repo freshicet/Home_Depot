@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 # The main app for doing Home Depot survey.
 # It Has a GUI interface that you are able to put in ID and Password from
 # Home Depot receipts.
