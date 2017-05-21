@@ -16,22 +16,21 @@ from Info_HD import First_name, Last_name, Email, zip_code
 import random
 import time
 
-# dcap = dict(DesiredCapabilities.PHANTOMJS)
-# dcap["phantomjs.page.settings.userAgent"] = (
-#     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/53 "
-#     "(KHTML, like Gecko) Chrome/15.0.87")
+dcap = dict(DesiredCapabilities.PHANTOMJS)
+dcap["phantomjs.page.settings.userAgent"] = (
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/53 "
+    "(KHTML, like Gecko) Chrome/15.0.87")
+# change path as needed
+path_to_phantomjs = 'C:\Python35\Scripts\Home_dGUI\phantomjs-2.1.1-windows/bin/phantomjs'
 
-# path_to_phantomjs = 'C:\Python35\Scripts\Home_dGUI\phantomjs-2.1.1-windows/bin/phantomjs'  # change path as needed
-# driver = webdriver.PhantomJS(
-#     executable_path=path_to_phantomjs, desired_capabilities=dcap)
-path_to_Chrome = 'C:\Python35\Scripts\Home_dGUI\chromedriver.exe'
 # A randomizer for the delay
 seconds = 5 + (random.random() * 5)
 
 
 def show_entry_fields():
     # create a new Chrome session
-    driver = webdriver.Chrome(path_to_Chrome)
+    driver = webdriver.PhantomJS(
+        executable_path=path_to_phantomjs, desired_capabilities=dcap)
     driver.implicitly_wait(30)
     ID = e1.get()
     password_forHD = e2.get()
@@ -64,8 +63,8 @@ def show_entry_fields():
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
         # Open the next page which ask how would you describe this particular
-        # shopping experience at The Home Depot compared to other home improvement
-        # stores?
+        # shopping experience at The Home Depot compared to other 
+        # home improvement stores?
         # About the same is clicked.
         element = driver.find_element_by_xpath(
             '//*[@id="surveyform"]/div[1]/div/div[2]/div/div[1]/div[1]/div/table/tbody/tr/td[4]/input')
@@ -140,8 +139,12 @@ def show_entry_fields():
         e_mail.send_keys(Email)
         driver.find_element_by_id("finishButton").click()
         driver.quit()
+    finally:
+        driver.quit()
+
 
 master = Tk()
+
 
 Label(master, text="ID").grid(row=0)
 Label(master, text="password").grid(row=1)
