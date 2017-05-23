@@ -62,7 +62,7 @@ def show_entry_fields():
         element.click()
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
-        # Open's the next page, which ask how would you describe this particular
+        # Open's the next page and ask, how would you describe this particular
         # shopping experience at The Home Depot compared to other
         # home improvement stores?
         # About the same is clicked.
@@ -71,7 +71,7 @@ def show_entry_fields():
         element.click()
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
-        # Open's the next page ask,Why did you say that this shopping
+        # Open's the next page and ask,Why did you say that this shopping
         # experience was about the same compared to other home improvement
         # stores? Next is click.
         element = driver.find_element_by_xpath(
@@ -81,7 +81,7 @@ def show_entry_fields():
         time.sleep(seconds)
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
-        # Open's the next page ask, How satisfied were you with each of these
+        # Open's the next page and ask, How satisfied were you with each of these
         # areas during this visit to The Home Depot? Please use the full scale
         # below.
         # The time it took to check-out, from the time you got in line to the
@@ -97,8 +97,8 @@ def show_entry_fields():
         element.click()
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
-        # Open's the next page ask, 
-        # Thinking about this visit,how much do you agree or disagree that each of the following 
+        # Open's the next page and ask,
+        # Thinking about this visit,how much do you agree or disagree that each of the following
         # statements describe your experience at The Home Depot? Please use the full scale below.
         # The store was generally neat and clean
         # Neither agree nor disagree was click.
@@ -122,7 +122,7 @@ def show_entry_fields():
         element.click()
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
-        # Open's the next page ask, 
+        # Open's the next page and ask,
         # Still thinking about this visit.
         # Did you require assistance from a store employee?
         # No was click.
@@ -136,21 +136,34 @@ def show_entry_fields():
         element.click()
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
+        # Open's the next page and ask,
+        # You indicated that there were not sufficient quantities of products on the shelves. 
+        # In what area(s) were you looking for product(s) that were not available in sufficient quantities?
+        # Tool Rental was click.
         element = driver.find_element_by_xpath(
             '//*[@id="i_onf_q_thd_outofstock_tool_rental_yn_1"]')
         element.click()
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
+        # Open's the next page and ask,
+        # Is there anything else you would like to tell us about your visit or is 
+        # there anything we could do to improve your shopping experience?
+        # I do not have anything else to share was click.
         element = driver.find_element_by_xpath(
             '//*[@id="i_onf_q_thd_catchall_oe_optout_yn_1"]')
         element.click()
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
+        # Open's the next page and ask,
+        # You indicated you were not satisfied with store employees and the customer service they provided.
+        # No, please do not contact me was click.
         element = driver.find_element_by_xpath(
             '//*[@id="i_onf_q_thd_contact_radio_3"]')
         element.click()
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
+        # Open's the next page and ask,
+        # Input Name and Email
         first_name = driver.find_element_by_name(
             'spl_q_thd_contact_first_name_text')
         # Frist name input
