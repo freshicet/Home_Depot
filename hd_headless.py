@@ -28,13 +28,13 @@ seconds = 5 + (random.random() * 5)
 
 
 def show_entry_fields():
-    # create a new Chrome session
+    # create a new PhantomJS session
     driver = webdriver.PhantomJS(
         executable_path=path_to_phantomjs, desired_capabilities=dcap)
     driver.implicitly_wait(30)
     ID = e1.get()
     password_forHD = e2.get()
-    # Open a Home Depot Survey.
+    # Open's a Home Depot Survey.
     driver.get("https://survey.medallia.com/?thehomedepot")
     driver.find_element_by_id("beginButton").click()
     time.sleep(seconds)
@@ -62,17 +62,18 @@ def show_entry_fields():
         element.click()
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
-        # Open the next page which ask how would you describe this particular
-        # shopping experience at The Home Depot compared to other 
+        # Open's the next page, which ask how would you describe this particular
+        # shopping experience at The Home Depot compared to other
         # home improvement stores?
         # About the same is clicked.
         element = driver.find_element_by_xpath(
             '//*[@id="surveyform"]/div[1]/div/div[2]/div/div[1]/div[1]/div/table/tbody/tr/td[4]/input')
         element.click()
-        driver.find_element_by_id("nextButton")
+        driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
-        element.click()
-        # Open the next page ask
+        # Open's the next page ask,Why did you say that this shopping
+        # experience was about the same compared to other home improvement
+        # stores? Next is click.
         element = driver.find_element_by_xpath(
             '//*[@id="surveyform"]/div[1]/div/div[2]/div/div[1]/div[1]/div/table/tbody/tr/td[4]/input')
         element.click()
@@ -80,14 +81,33 @@ def show_entry_fields():
         time.sleep(seconds)
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
+        # Open's the next page ask, How satisfied were you with each of these
+        # areas during this visit to The Home Depot? Please use the full scale
+        # below.
+        # The time it took to check-out, from the time you got in line to the
+        # time you finished paying.
+        # Somewhat satisfied was click.
+        # Store employees and the customer service they provided.
+        # Somewhat satisfied was click.
         element = driver.find_element_by_xpath(
             '//*[@id="surveyform"]/div[1]/div/div[2]/div/div[1]/div/div/table/tbody/tr[1]/td[4]/input')
         element.click()
         element = driver.find_element_by_xpath(
-            '//*[@id="surveyform"]/div[1]/div/div[2]/div/div[1]/div/div/table/tbody/tr[2]/td[3]/input')
+            '//*[@id="surveyform"]/div[1]/div/div[2]/div/div[1]/div/div/table/tbody/tr[2]/td[4]/input')
         element.click()
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
+        # Open's the next page ask, 
+        # Thinking about this visit,how much do you agree or disagree that each of the following 
+        # statements describe your experience at The Home Depot? Please use the full scale below.
+        # The store was generally neat and clean
+        # Neither agree nor disagree was click.
+        # Had sufficient quantities of product in-stock on the shelves.
+        # Neither agree nor disagree was click.
+        # The cashier was friendly.
+        # Neither agree nor disagree was click.
+        # Employees were consistently friendly throughout the store.
+        # Neither agree nor disagree was click.
         element = driver.find_element_by_xpath(
             '//*[@id="surveyform"]/div[1]/div/div[2]/div/div[1]/div/div/table/tbody/tr[1]/td[4]/input')
         element.click()
@@ -102,6 +122,12 @@ def show_entry_fields():
         element.click()
         driver.find_element_by_id("nextButton").click()
         time.sleep(seconds)
+        # Open's the next page ask, 
+        # Still thinking about this visit.
+        # Did you require assistance from a store employee?
+        # No was click.
+        # Did you receive assistance from a store employee?
+        # No was click.
         element = driver.find_element_by_xpath(
             '//*[@id="surveyform"]/div[1]/div/div[2]/div/div[1]/div/div/table/tbody/tr[1]/td[3]/input')
         element.click()
