@@ -8,6 +8,7 @@ The main app is to take home Depot Survey by using automate with selenium and Ph
 ```
 pip install -r requirements.txt
 ```
+Need to install PhantomJS.
 Run the GUIforINFO.py file to get Text file of your Frist,Last Name, Email, and Zipcode.
 ```
 GUIforINFO.py
